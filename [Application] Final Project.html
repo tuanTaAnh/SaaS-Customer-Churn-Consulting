@@ -7846,7 +7846,7 @@ Requirement already satisfied: pure-eval in /Users/taanhtuan/miniconda3/envs/chu
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_17340/2144582446.py:1: DtypeWarning: Columns (13) have mixed types. Specify dtype option on import or set low_memory=False.
+<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_19692/2144582446.py:1: DtypeWarning: Columns (13) have mixed types. Specify dtype option on import or set low_memory=False.
   df = pd.read_csv(DATA_PATH)
 </pre>
 </div>
@@ -9058,13 +9058,12 @@ Examples: ['Error']
 <div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s2">"joining_date"</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">jd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"joining_date"</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># replace failures with the column's mode date (or earliest valid date)</span>
-    <span class="n">fill_date</span> <span class="o">=</span> <span class="n">jd</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">jd</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">"2017-01-01"</span><span class="p">)</span>
-    <span class="n">jd</span> <span class="o">=</span> <span class="n">jd</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">fill_date</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">"joining_date"</span><span class="p">]</span> <span class="o">=</span> <span class="n">jd</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">"joining_date_iso"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"joining_date"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">jd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"joining_date"</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># replace failures with the column's mode date (or earliest valid date)</span>
+<span class="n">fill_date</span> <span class="o">=</span> <span class="n">jd</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">jd</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">"2017-01-01"</span><span class="p">)</span>
+<span class="n">jd</span> <span class="o">=</span> <span class="n">jd</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">fill_date</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"joining_date"</span><span class="p">]</span> <span class="o">=</span> <span class="n">jd</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"joining_date_iso"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"joining_date"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9077,7 +9076,7 @@ Examples: ['Error']
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_17340/399520981.py:2: UserWarning: The argument 'infer_datetime_format' is deprecated and will be removed in a future version. A strict version of it is now the default, see https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. You can safely remove this argument.
+<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_19692/114019541.py:1: UserWarning: The argument 'infer_datetime_format' is deprecated and will be removed in a future version. A strict version of it is now the default, see https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. You can safely remove this argument.
   jd = pd.to_datetime(df["joining_date"], errors="coerce", dayfirst=True, infer_datetime_format=True)
 </pre>
 </div>
@@ -9996,7 +9995,7 @@ Name: churn_risk_score, dtype: float64
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_17340/1313401476.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_19692/1313401476.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   rate = tmp.groupby("freq_bin")["churn_risk_score"].mean().mul(100).round(1)
 </pre>
 </div>
@@ -10327,7 +10326,7 @@ Customers who log in more often tend to stay engaged and are <strong>less likely
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_17340/2812573019.py:3: UserWarning: The argument 'infer_datetime_format' is deprecated and will be removed in a future version. A strict version of it is now the default, see https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. You can safely remove this argument.
+<pre>/var/folders/6x/h489kd6s4lxbdnxrhw8mvt140000gn/T/ipykernel_19692/2812573019.py:3: UserWarning: The argument 'infer_datetime_format' is deprecated and will be removed in a future version. A strict version of it is now the default, see https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. You can safely remove this argument.
   (now - pd.to_datetime(df[c], errors="coerce", infer_datetime_format=True))
 </pre>
 </div>
@@ -10846,7 +10845,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>100%|===================| 14783/14798 [12:57&lt;00:00]        </pre>
+<pre>100%|===================| 14783/14798 [12:55&lt;00:00]        </pre>
 </div>
 </div>
 </div>
@@ -11100,7 +11099,7 @@ With <strong>k=5</strong>, the clusters are <strong>clearer and more distinct</s
 <div class="jp-InputPrompt jp-InputArea-prompt">In [64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># === Most distinctive behaviors per cluster (top features) ===</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># top featuresfor each cluster </span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">cluster_centers_</span>
 
 <span class="c1"># z-scores across clusters (per feature/column)</span>
